@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Breve descripción del sitio">
+    <meta name="robots" content="index,follow">
+    <title>Noville | Arqueología en la web · Sector B</title>
+    <!--link rel="stylesheet" href="css/reset.css"-->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.2/flickity.min.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div id="contenedor">
+    <div id="planta">
+        <div id="textos_planta">
+            <div class="texto_planta emplazamiento">
+                <img class="cerrar_texto_planta" src="img/cruceta.svg">
+                <p>El yacimiento arqueológico de Noville se ubica sobre la misma linea costera, en una pequeña ensenada en la margen norte de la península de Ares, enfrente a la ciudad de Ferrol. Esta ensenada está orientada hacia el norte y se corresponde en tierra con una pequeña depresión o valle por donde discurre el riachuelo de Noville. El cuerpo principal de la villa se encuentra precisamente en la parte más baja y resguardada de esta depresión, ocupando tanto la zona de dominio intermareal -delimitada por importantes afloramientos rocosos por ambos lados-, como por la zona llana interior -delimitada al este por el riachuelo y un talud así como por otro gran talud al oeste-. De esta manera el yacimiento goza de una excelente apertura y comunicación hacia la ría, es de fácil acceso desde tierra y está protegido por ambos lados por elevaciones del terreno.</p>
+            </div>
+            <div class="texto_planta muro">
+                <img class="cerrar_texto_planta" src="img/cruceta.svg">
+                <p>Muro pantalla de hormigón construido con la finalidad de proteger el yacimiento, principalmente el sector B, de la acción erosiva del mar.</p>
+            </div>
+            <div class="texto_planta sectorA">
+                <img class="cerrar_texto_planta" src="img/cruceta.svg">
+                <p>Parte de las estructuras, entre ellas este sector A, fueron excavadas parcialmente y limpiadas en la campaña del año 1988. Posteriormente, en la campaña de 1989, fueron reconstruidas y consolidadas.</p>
+            </div>
+            <div class="texto_planta sectorB">
+                <img class="cerrar_texto_planta" src="img/cruceta.svg">
+                <p>La zona norte del Sector B se ha visto enormemente afectada por la acción del mar, lo que ha impedido recabar información fiable sobre su utilidad</p>
+            </div>
+            <div class="texto_planta hipocausto">
+                <img class="cerrar_texto_planta" src="img/cruceta.svg">
+                <p>En estas estancias exhumadas en la Cata 1 se encontraba el sistema de calefacción conocido como hipocausto.</p>
+            </div>
+            <div class="texto_planta general">
+                <img class="cerrar_texto_planta" src="img/cruceta.svg">
+                <p>Casi la totalidad de la construcción se caracteriza por estar realizada con esquistos de tamaños irregulares trabado con barro blanquecino, esporádicamente se encuentran algunas piedras o sillares de granito así como algún ladrillo.</p>
+            </div>
+        </div>
+        
+        <div id="contenedor_svg">
+            <?xml version="1.0" encoding="utf-8"?>
+            <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+            <svg id="plano_general" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1500 953" enable-background="new 0 0 1500 953" xml:space="preserve">
+                <g id="Capa_1">
+                    <image overflow="visible" width="1500" height="953" xlink:href="img/plano_general.jpg" >
+                    </image>
+                </g>
+                <g id="puntos">
+                    <circle id="c7" opacity="0.6" fill="#8A2223" cx="802.587" cy="520" r="24.749"/>
+                    <!--circle id="c6" opacity="0.6" fill="#8A2223" cx="497.382" cy="740.826" r="24.749"/-->
+                    <circle id="c5" opacity="0.6" fill="#8A2223" cx="458.384" cy="521.838" r="24.749"/>
+                    <circle id="c4" opacity="0.6" fill="#8A2223" cx="447.885" cy="308.848" r="24.749"/>
+                    <circle id="c3" opacity="0.6" fill="#8A2223" cx="1112.351" cy="298.349" r="24.749"/>
+                    <circle id="c2" opacity="0.6" fill="#8A2223" cx="594.848" cy="142.356" r="24.749"/>
+                    <circle id="c1" opacity="0.6" fill="#8A2223" cx="141.9" cy="142.356" r="24.749"/>
+                </g>
+            </svg>
+
+        </div> <!-- Fin #contenedor_svg -->
+    </div> <!-- Fin #planta -->
+  </div> <!-- Fin #contenedor -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script type="text/javascript">                
+        $(window).load(function() {  
+            $('#puntos').click(function() {
+                $("#contenedor_svg").toggleClass("opacidad");
+            });
+            $('#c1').click(function() {
+                $(".emplazamiento").toggleClass("texto_planta_activo");
+            });
+            $('#c2').click(function() {
+                $(".muro").toggleClass("texto_planta_activo");
+            });
+            $('#c3').click(function() {
+                $(".sectorA").toggleClass("texto_planta_activo");
+            });
+            $('#c4').click(function() {
+                $(".sectorB").toggleClass("texto_planta_activo");
+            });
+            $('#c5').click(function() {
+                $(".hipocausto").toggleClass("texto_planta_activo");
+            });
+            $('#c7').click(function() {
+                $(".general").toggleClass("texto_planta_activo");
+            });
+            
+
+/**************************************************************
+Código que controla la activación de los distintos habitáculos
+**************************************************************/
+            $('.cerrar_texto_planta').click(function() {
+                $(".texto_planta").removeClass("texto_planta_activo");
+                $("#contenedor_svg").toggleClass("opacidad");
+            });
+        });
+        </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

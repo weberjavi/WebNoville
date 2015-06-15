@@ -1,0 +1,482 @@
+
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/********************************************************************************
+         ESTILOS GENERALES (elementos de la página abierta por primera vez)
+********************************************************************************/
+
+body { -webkit-animation:fadein 1s; animation:fadein 1s }
+@-webkit-keyframes fadein { from {opacity:0} to {opacity:1} }
+@keyframes fadein { from {opacity:0} to {opacity:1} }
+
+body {
+  background-color: #D9D9D9;
+  font-family: 'Lato', sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow-x:hidden;
+   }
+a{
+  color: #8A2223;
+  text-decoration: none;
+}
+a:hover{
+  color: black;
+}
+/*****************************************************************
+  Estilos de la página de inicio             href :::::: home.html
+******************************************************************/
+#nav_general{
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  bottom: 10px;
+  left: 30px;
+  z-index: -1;
+  -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+}
+
+nav ul li {
+  display: inline-block;
+  padding-right: 1em;
+  padding-left: 1em;
+  padding-bottom: 2em;
+}
+
+nav ul li a {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  font-weight: 400;
+  color: black;
+  letter-spacing: 0.2em;
+  margin-top: 0.5;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+nav ul li a:hover {
+  color: #8A2223;
+}
+
+
+#pulsador{
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+   
+    #fondo_home{
+        position: absolute;
+        width: 100%;
+        bottom: 0.1%;
+        list-style: none;
+        z-index: -1;
+    }
+    .creditos,
+    .proyecto,
+    .entradilla{
+        position: absolute;
+        padding: 10px;
+        width: 500px;
+        top:-50%;
+        opacity:0;
+        left: 50%;
+        -webkit-transform:translateX(-50%);
+        transform:translateX(-50%);
+         -webkit-transition: opacity 1.5s, top 0.7s;
+        -moz-transition: opacity 1.5s, top 0.7s;
+        -o-transition: opacity 1.5s, top 0.7s;
+        transition: opacity 1.5s, top 0.7s;
+       
+    }
+    
+ 
+#plano_home{
+  position: absolute;
+  max-width: 100%;
+  left: 0;
+  top: 0;
+    opacity: 0.2;
+    z-index:1;
+}
+#pulsador{
+    cursor: pointer;
+    z-index: 3000;
+}
+.aparece{
+    opacity: 1;
+    top: 30%;
+}
+  .cerrar_home{
+    max-width: 20px;
+  position: absolute;
+  right: -10%;
+  top: 50%;
+  -webki-transform:translateY(-50%);
+        transform:translateY(-50%);
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2000;
+  -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+   }
+   .titulo_nav{
+    position: relative;
+    text-transform: uppercase;
+    color: #8A2223;
+    font-size: 1.5em;
+    padding: 10px 0;
+    font-weight: 300;
+   }
+   .pop_up{
+    line-height: 1.4em;
+   }
+/************************************************************************
+  Estilos de las páginas de los sectores  href :::::: sectorb.html
+                                          href :::::: hipocausto.html
+                                          href :::::: plano_general.html
+************************************************************************/
+
+h1{
+        
+        text-transform: uppercase;
+        color: #8A2223;
+        font-weight: 300;
+        margin-top: 0;
+    }
+
+   
+#contenedor{
+                width: 100vw;
+                height: 100vh;
+                position: relative;
+            }
+            #texto{
+                position: absolute;
+                display: inline-block;
+                left: -100%;
+                top: 60px;
+                opacity: 0;
+                height: calc(97vh - 60px);
+                width: 30%;
+                overflow-y: auto;
+                padding: 15px;
+                -webkit-transition: all 0.7s;
+                -moz-transition: all 0.7s;
+                -o-transition: all 0.7s;
+                transition: all 0.7s;
+            }
+            .texto_activo{
+                left: 1% !important;
+                opacity: 1 !important;
+            }
+
+            #iconos{
+                position: absolute;
+                left: 30px;
+                top: 60px;
+                display: inline-block;
+                width: 50px;
+                height: 100px;
+                -webkit-transition: all 0.7s;
+                -moz-transition: all 0.7s;
+                -o-transition: all 0.7s;
+                transition: all 0.7s;
+            }
+            .iconos_activos{
+                left: 31% !important;
+            }
+            .boton_iconos{
+                width: 36px;
+                cursor: pointer;
+                margin: 15px auto 0px auto;
+                display: block;
+                opacity: 0.6;
+            }
+            .boton_iconos:hover{
+                opacity: 1;
+            }
+           
+            #planta{
+                position: absolute;
+                right: 1%;
+                bottom: 1%;
+                display: inline-block;
+                width: 90%;
+                height: 90vh;
+                -webkit-transition: all 0.7s;
+                -moz-transition: all 0.7s;
+                -o-transition: all 0.7s;
+                transition: all 0.7s;   
+            }
+            .planta_activa{
+                width: 63% !important;
+            }
+            
+            .texto_planta{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -webkit-transform:translate(-50%,-50%);
+                transform:translate(-50%,-50%);
+                width: 40%;
+                max-width: 500px;
+                height: auto;
+                color: black;
+                opacity: 0;
+                z-index: 0;   
+                display: none; 
+            }
+
+            .foto_planta{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -webkit-transform:translate(-50%,-50%);
+                transform:translate(-50%,-50%);
+                width: 40%;
+                max-width: 500px;
+                height: auto;
+                color: black;
+                opacity: 0;
+                display: none;
+                   
+            }
+            .foto_planta img{
+                max-width: 100%;
+            }
+            .texto_mapa_activo{
+               position: absolute;
+                top: 50%;
+                left: 50%;
+                -webkit-transform:translate(-50%,-50%);
+                transform:translate(-50%,-50%);
+                width: 40%;
+                max-width: 500px;
+                height: auto;
+                color: black;
+                opacity: 1;
+                z-index: 300;  
+                line-height: 1.4;
+            }
+            .texto_mapa_inactivo{
+              opacity: 0 !important;
+              z-index: 0;
+              display: none;
+            }
+            .foto_planta_activo,
+            .texto_planta_activo{
+                display: inline-block;
+                z-index: 200;
+                opacity: 1 !important;
+                -webkit-transition: all 0.3s;
+                -moz-transition: all 0.3s;
+                -o-transition: all 0.3s;
+                transition: all 0.3s;
+            }
+            .cerrar_texto_mapa,
+            .cerrar_foto_planta,
+            .cerrar_texto_planta{
+                width: 20px;
+                position: absolute;
+                right: -30px;
+                top: 50%;
+                -webkit-transform:translateY(-50%);
+                transform:translateY(-50%);
+                cursor: pointer;
+            }
+            .pie_foto{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                color: white;
+                background-color: rgba(138,34,35,0.6);
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                opacity: 0;
+                -webkit-transition: all 0.3s;
+                -moz-transition: all 0.3s;
+                -o-transition: all 0.3s;
+                transition: all 0.3s;
+            }
+            .pie_foto p{
+              color: #fff !important;
+              display: table-cell;
+              margin: 0;
+              padding: 0 20px;
+              vertical-align: middle;
+              position: absolute;
+              top: 35%;
+            }
+            .pie_foto:hover{
+                opacity: 1;
+
+            }
+            #contenedor_svg{
+                width: 100%;
+                height: 100%;
+                z-index: 50;
+            }
+            svg{
+                width: 100%;
+                height: 100%;
+            }
+            #plano_general{
+              position: absolute;
+              max-width: 100%;
+              left: -4%;
+            }
+            #hipocausto{
+              position: absolute;
+              max-width: 70%;
+              right: 10%;
+            }
+            .opacidad{
+                opacity: 0.1;
+                pointer-events:none;
+            }
+
+            #fotos,
+            #puntos{
+                cursor: pointer;
+            }
+            .fotos_visibles{
+                display: inline;
+            }
+            .boton_activo{
+                opacity: 1 !important;
+            }
+            .activo{
+              opacity: 0.8;
+            }
+            .foto_texto{
+              width: 20px;
+              cursor: pointer;
+            }
+
+/*****************************************************************
+  Estilos del mapa del entorno               href :::::: mapa.html
+******************************************************************/
+#map {
+  height: 100vh;
+  max-width: 100%; }
+
+.botonera{
+  position: absolute;
+  bottom: 50px;
+  left: 20px;
+  z-index: 200;
+  background-color: rgba(0,0,0,0.1)
+}
+.botonera ul{
+  padding: 10px 10px 10px 10px;
+}
+.botonera a{
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: #8A2223;
+  line-height: 2;
+  font-weight: 300;
+  text-decoration: none;
+  -webkit-transition:all 0.4s;
+  transition:all 0.4s;
+}
+.boton_inactivo{
+  color:rgba(138,34,35,0.5) !important;
+  text-decoration:line-through !important; 
+}
+.boton span img{
+  width: 10px;
+  position: relative;
+  bottom: -1px;
+  left: -5px;
+}
+
+/* estilos generales del controlador del zoom.*/
+.leaflet-control-zoom{
+  z-index: 300 !important;
+  top: 65px !important;
+  left: 32px !important;
+}
+
+.leaflet-bar {
+  box-shadow: none !important;
+  border-radius: none !important; }
+
+.leaflet-bar a,
+.leaflet-bar a:hover {
+  background-color: #f5f5f5;
+  border-bottom: none;
+  opacity: 0.6;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+ color: #8A2223; }
+
+.leaflet-bar a:hover {
+  background-color: white; }
+
+.leaflet-bar a:first-child,
+.leaflet-bar a:last-child {
+  border-radius: 0px; }
+
+.popup{
+  background-color: rgba(0,0,0,0.1) !important;
+  font-family: 'Lato', sans-serif;
+  padding: 15px;
+  padding-right: 20px;
+}
+.nombre{
+  font-size: 20px !important;
+  font-weight: 300;
+  padding-right: 15px;
+}
+.tipo{
+  font-size: 15px !important;
+  font-weight: 300;
+  padding-right: 15px;
+  color: #8A2223;
+}
+.cerrar_popup{
+  width: 15px;
+  padding: 2px;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  -webkit-transform:translateY(-30%);
+  transform:translateY(-30%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

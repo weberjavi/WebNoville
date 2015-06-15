@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Breve descripción del sitio">
+	<meta name="robots" content="index,follow">
+	<title>Arqueología en la Web | Villa romana de Noville</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/slideme2.css">
+	<!--link rel="stylesheet" href="css/style.css"-->
+	<style type="text/css">
+	*{
+		border: none;
+	}
+	body { -webkit-animation:fadein 1s; animation:fadein 1s }
+@-webkit-keyframes fadein { from {opacity:0} to {opacity:1} }
+@keyframes fadein { from {opacity:0} to {opacity:1} }
+
+	html, body{
+		min-height: 100%;
+		min-width: 100%;
+		background-color: #D9D9D9;
+	}
+
+.slideme {
+    max-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+  }
+
+iframe{
+	min-width: 100%;
+	min-height: 100%;
+	width: 100%;
+	height: 100%;
+}
+
+#contenedor_diapositivas{
+	height: 100vh;
+	width: 100vw;
+}
+#volver{
+	position: absolute;
+	left: 20px;
+	top: 10px;
+	z-index: 1000;
+	width: 120px;
+	height: 80px;
+}
+
+
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.slideme2.js"></script>
+
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<!--div id="volver"><a href="campana89.html"><img src="img/novilleLogo.svg"></a></div-->
+
+<div id="contenedor_diapositivas">
+
+	<ul class="slideme">
+		<li><iframe id="home" src="home.html"></iframe></li>
+		<li><iframe src="mapa.html"></iframe></li>
+		<!--li><iframe src="lareira.html"></iframe></li-->
+		<li><iframe src="hipocausto.html"></iframe></li>
+		<li><iframe  src="sectorb.html"></iframe></li>
+		<li><iframe src="plano_general.html"></iframe></li>
+	</ul>
+
+</div>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+    $("#contenedor_diapositivas").slideme({
+    	pagination:"thumbs",
+    	transition : 'fade',
+    	resizable: {
+		width: 1200,
+		height: 580,
+		}
+    });
+
+	
+});
+</script>
+
+
+</body>
+</html>

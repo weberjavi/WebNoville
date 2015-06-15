@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!--Las dos siguientes etiquetas meta son de el slider de blueprint-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>NOVILLE | Experimento de Arqueología y Web</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+		 <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.14/themes/css/cartodb.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	</head>
+
+
+<body>
+
+	    	<div class="botonera opacidad">
+	    		<ul>
+	    			<li><a href="#villas" class="boton villas"><span><img src="img/villas.svg"></span>Villas Romanas</a></li>
+	    			<li><a href="#villas_posibles" class="boton boton_inactivo villas_posibles"><span><img src="img/villas_posibles.svg"></span>Yacimientos (posibles villas)</a></li>
+	    			<li><a href="#faros" class="boton faros"><span><img src="img/salinas.svg"></span>Factorías de salazón</a></li>
+	    			<li><a href="#rutas" class="boton boton_inactivo rutas"><span><img src="img/rutas.svg"></span>Rutas de cabotaje</a></li>
+	    		</ul>
+	    	</div>
+	    	<div class="texto_mapa_activo general">
+                <img class="cerrar_texto_mapa" src="img/cruceta.svg">
+                <p>El yacimiento de Noville está, a nivel geográfico e histórico, dentro del Golfo Ártabro que según las fuentes clásicas (Pomponio Mela, Plinio el Viejo, Ptolomeo...) sufrió una fuerte romanización. Los hallazgos arqueológicos así lo constatan; más allá de la proximidad de Noville al bien conocido faro romano de Brigantium (A Coruña) y por tanto a importantes vías de transporte marino (tanto de cabotaje peninsular como de travesías a zonas alejadas del Imperio Romano, como serían las Islas Británicas), Noville es una más de las numerosas Villas romanas de las que se tiene constancia en el noroeste atlántico de la Península Ibérica.<br>
+                	En este mapa de contexto se puede apreciar la gran densidad de establecimientos tipo villa, así como la industria dependiente del mar generada a su alrededor.</p>
+            </div>
+
+            <script type="infowindow/html" id="infowindow_template">
+      
+		      <div class="popup">
+		        <a href="#close" class="cartodb-popup-close-button close"><img  class="cerrar_popup"src="img/cruceta.svg"></a>
+
+		         <div class="cartodb-popup-content-wrapper">
+		           <div class="cartodb-popup-content">
+		             <!-- content.data contains the field info -->
+		             <p class="tipo">{{content.data.description}}</p>
+		             <p class="nombre">{{content.data.name}}</p>
+		           </div>
+		         </div>
+		         <div class="cartodb-popup-tip-container"></div>
+		      </div>
+		    </script>
+			
+			<div id="map" class="opacidad"></div>
+			<script src="http://libs.cartocdn.com/cartodb.js/v3/3.14/cartodb.js"></script>
+				<script type="text/javascript">
+				window.onload = function() {
+        			// creamos un objeto/variable "map" y a través del método L.map de la librería leaflet lo situamos en elemento del DOM con id="map" y le otorgamos unas características iniciales
+					var map = L.map('map', {
+    					center: [43.460519, -8.247136],
+    					zoom: 9,
+    					minZoom:7,
+    					maxZoom:10
+					});
+					//Aqui creamos el objeto JSON en el que identificamos las capas a mostrar y sus características. El tutorial a consultar está aquí: http://academy.cartodb.com/courses/03-cartodbjs-ground-up/lesson-2.html
+					var layerSource = 'https://weberjavi.cartodb.com/api/v2_1/viz/108b68e2-0dbb-11e5-8a28-0e4fddd5de28/viz.json';
+
+					// Declaramos un array vacío para guardar las sublayers que se definirán a continuación.
+    				var sublayers = [];
+
+
+
+    				
+    				
+
+    				
+
+
+
+
+					// Aquí añadimos como mapa base uno creado con Mapbox Studio. Podemos ver la manera de hacerlo aquí: https://www.mapbox.com/help/mapbox-with-leaflet/
+					L.tileLayer('https://{s}.tiles.mapbox.com/v4/javiabia.148f6b63/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiamF2aWFiaWEiLCJhIjoiS1ZyQ3BQYyJ9.v8yJTbF879AQ_t6j5XafiQ').addTo(map);
+
+				    //De esta manera añadimos todas las capas creadas anteriormente en la variable LayerSource.
+					cartodb.createLayer(map,layerSource)
+				        .addTo(map)
+				        .done(function(layer) {
+				          for (var i = 0; i < layer.getSubLayerCount(); i++) {
+				               sublayers[i] = layer.getSubLayer(i);
+				           };
+				           sublayers[1].hide();
+				           sublayers[3].hide();
+				           // get sublayer 0 and set the infowindow template
+           					var sublayerVillas = layer.getSubLayer(0);
+           					var sublayerPosibles = layer.getSubLayer(1);
+           					var sublayerSalinas = layer.getSubLayer(2);
+           					var sublayerRutas = layer.getSubLayer(3);
+
+           					sublayerVillas.infowindow.set('template', $('#infowindow_template').html());
+           					sublayerPosibles.infowindow.set('template', $('#infowindow_template').html());
+           					sublayerSalinas.infowindow.set('template', $('#infowindow_template').html());
+           					sublayerRutas.infowindow.set('template', $('#infowindow_template').html());
+				            /*sublayers[0].setInteraction(true);
+							sublayers[0].on('featureClick',function(event, latlng, pos, data, layerIndex) {
+								cdb.vis.Vis.addInfowindow(map, layer.getSubLayer(0), ['name']);
+							});
+							sublayers[1].setInteraction(true);
+							sublayers[1].on('featureClick',function(event, latlng, pos, data, layerIndex) {
+								cdb.vis.Vis.addInfowindow(map, layer.getSubLayer(1), ['name']);
+							});*/
+				        })
+				        .error(function(err) {
+				            console.log("error: " + err);
+				        });
+
+
+				    //Estas declaraciones se encargan de hacer visibles o invisibles las distintas capas
+				    var villas = true;
+					$(".villas").on('click', function() {
+					    if (villas) {
+					        sublayers[0].hide();
+					    } else {
+					        sublayers[0].show();
+					    }
+					    villas = !villas; 
+					});
+
+					var villas_posibles = false;
+					$(".villas_posibles").on('click', function() {
+					    if (villas_posibles) {
+					        sublayers[1].hide();
+					    } else {
+					        sublayers[1].show();
+					    }
+					    villas_posibles = !villas_posibles; 
+					});
+
+					var faros = true;
+					$(".faros").on('click', function() {
+					    if (faros) {
+					        sublayers[2].hide();
+					    } else {
+					        sublayers[2].show();
+					    }
+					    faros = !faros; 
+					});
+
+					var rutas = false;
+					$(".rutas").on('click', function() {
+					    if (rutas) {
+					        sublayers[3].hide();
+					    } else {
+					        sublayers[3].show();
+					    }
+					    rutas = !rutas; 
+					});
+
+					$(".boton").click(function() {
+        				$(this).toggleClass('boton_inactivo');
+    				});
+
+
+    				$('.cerrar_texto_mapa').click(function() {
+                		$(".texto_mapa_activo").addClass("texto_mapa_inactivo");
+                		$("#map").removeClass("opacidad");
+                		$(".botonera").removeClass("opacidad");
+            		});
+
+
+			}
+
+
+			    
+
+				</script>
+
+
+
+
+</body>
+</html>
