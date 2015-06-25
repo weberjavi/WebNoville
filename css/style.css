@@ -30,6 +30,49 @@ a:hover{
 /*****************************************************************
   Estilos de la página de inicio             href :::::: home.html
 ******************************************************************/
+.fondo_inicial{
+  position: absolute;
+  background-color: #D9D9D9;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+}
+.texto_inicial{
+  position: relative;
+  /*top: 50%;*/
+  left: 50%;
+  -webkit-transform:translate(-50%, -50%);
+  transform:translate(-50%, -50%);
+  max-width: 500px;
+}
+.texto_inicial h1{
+  color: #8A2223;
+  font-weight: 300 !important;
+}
+.texto_inicial p{
+  color: black;
+  line-height: 1.3em;
+  letter-spacing: .2em;
+  font-weight: 300;
+}
+.cerrar_presentacion{
+  cursor: pointer;
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  width: 20px;
+}
+.desaparece{
+  opacity: 0;
+  z-index: 1;
+}
+/*****************************************************************
+  Estilos de la página de inicio             href :::::: home.html
+******************************************************************/
 #nav_general{
   position: absolute;
   width: 100%;
@@ -462,9 +505,52 @@ h1{
   -webkit-transform:translateY(-30%);
   transform:translateY(-30%);
 }
+/*****************************************************************
+  ANIMACIONES
+******************************************************************/
 
 
+.animado {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
 
+.apareceArriba {
+  -webkit-animation-name: apareceArriba;
+  animation-name: apareceArriba;
+}
+
+@-webkit-keyframes apareceArriba {
+  0% {
+    opacity: 0;
+    top:-10%;
+  }
+  60% {
+    opacity: 0;
+    top:20%;
+  }
+  100% {
+    opacity: 1;
+    top:50%;
+  }
+}
+
+@keyframes apareceArriba {
+  0% {
+    opacity: 0;
+    top:-10%;
+  }
+  60% {
+    opacity: 0;
+    top:30%;
+  }
+  100% {
+    opacity: 1;
+    top:50%;
+  }
+}
 
 
 

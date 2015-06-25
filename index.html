@@ -8,7 +8,7 @@
 	<title>Arqueología en la Web | Villa romana de Noville</title>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/slideme2.css">
-	<!--link rel="stylesheet" href="css/style.css"-->
+	<link rel="stylesheet" href="css/style.css">
 	<style type="text/css">
 	*{
 		border: none;
@@ -73,9 +73,15 @@ iframe{
 
 <body>
 	<!--div id="volver"><a href="campana89.html"><img src="img/novilleLogo.svg"></a></div-->
-
+<!--div class="fondo_inicial">
+	<div class="texto_inicial animado apareceArriba">
+		<img  class="cerrar_presentacion" src="img/cruceta.svg">
+		<h1>Noville 1989</h1>
+		<p>Está a punto de visitar una versión web de las memorias de excavación de la villa romana de Noville.</p>
+		<p>El punto de partida de este proyecto son los trabajos realizados en el año 1989 por el equipo de arqueólogos dirigido por Fermín Pérez Losada en el yacimiento de Noville, situado en Franza, Mugardos (A Coruña).</p>
+	</div>
+</div-->
 <div id="contenedor_diapositivas">
-
 	<ul class="slideme">
 		<li><iframe id="home" src="home.html"></iframe></li>
 		<li><iframe src="mapa.html"></iframe></li>
@@ -97,8 +103,9 @@ $( document ).ready(function() {
 		height: 580,
 		}
     });
-
-	
+    $('.cerrar_presentacion').click(function() {
+        $(".fondo_inicial").addClass("desaparece");
+    });
 });
 </script>
 
